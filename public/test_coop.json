@@ -1,0 +1,31 @@
+{
+    "results": [
+        {
+            "start_time": "2022-10-12T01:00:00+09:00",
+            "end_time": "2022-10-13T17:00:00+09:00",
+            "stage": {
+                "id": 1,
+                "name": "シェケナダム",
+                "image": "https://api.lp1.av5ja.srv.nintendo.net/resources/prod/stage_img/icon/high_resolution/be584c7c7f547b8cbac318617f646680541f88071bc71db73cd461eb3ea6326e_0.png?Expires=1673308800&Signature=a74SEbJFl-QDswhsad6YCGquS2TapXx9X2KRN7VAR4v-Bu49NPZkhn6Er8~K~0OAi7Phn1Zj6kLt4FkvoCjJhyNpY5TjN-6iqemgklj58gZUuLaBtVTPTxeaEUZe3hOSiLXMSlI-FfLr0PrY3~KZ9c2kJZpXCzRSERMWp3SiwAumkSIZzveyXM4Db8dYdTb07SFCL~E9VP7HmH~UEOzkTSxKHaS3FuE~KcFllQQBueFmk8Ru7LWhCn~Taa5g8JoCI-NpmBoqA6vn5OmYUO6WJaQOQ2G68FESVf2AZLBJmihnMSk6X9yHG2W3yU2EA1TaO2iG9lvOoRpHyxPnLZndmQ__&Key-Pair-Id=KNBS2THMRC385"
+            },
+            "weapons": [
+                {
+                    "name": ".52ガロン",
+                    "image": "https://api.lp1.av5ja.srv.nintendo.net/resources/prod/weapon_illust/01e8399a3c56707b6e9f7500d3d583ba1d400eec06449d8fe047cda1956a4ccc_0.png?Expires=1673308800&Signature=fFoy2pG8e6O9OAUQBG0sSBMAUWYn9c7BjNWGPs~3X-urXNrcqvYHWfiC7DA-ioeqaBpYwIk4QmlUgl7FoR5hnQBWQoZM~8oyv8sGPPxtwdnR7uAcHXzn-xOQOkUz394gCcVgl9j3xyy-aIOiI3bot~M8LkEKeb2zjjrmuQI3BwFTC8-tOk-Qfg3MXza7oQWy8Wa7zd8qr-Zt3nv~~iJ4tXa2d26McMfpJQMyi26oiI-nSnnQSUo5JvKQ5Aeh2wECnYIXbyFqn8dPLLDGlXGDeQUBMzPZ0WwYyk7F85kt1SPgPFRKTgk7K7Yy01VecGAecNA9J8kZmVY9I-UzehotkQ__&Key-Pair-Id=KNBS2THMRC385"
+                },
+                {
+                    "name": "クーゲルシュライバー",
+                    "image": "https://api.lp1.av5ja.srv.nintendo.net/resources/prod/weapon_illust/206dbf3b5dfc9962b6a783acf68a856f0c8fbf0c56257c2ca5c25d63198dd6e1_0.png?Expires=1673308800&Signature=OFPCSaAIfQHHUGFwr3AVFOgqQcoHWRa-nvP--nvfEH96oEYrGgBJdcam3K8mTnVvg4wqdjnpsAK26NqcFmRPJJnrct6Ux9fAHNWooWJ5Jdb8LT6ArDC31CDdjR460DElBtw9RRM92HsOs2zOzOzJQLO5nTHcePjTLRsFBzBB8uq2PsFdg8tvyjBZ2JWMqJT~-zh0P1MK7DLAAxdi8NL0q0C4xWJymqBP0OtJvdLO79w2DH737akAjDEFc5bEMWimC4OynLJZtz8c6JuCJEjs9aa4092jRL3VQ0Q5yqBBhb-aQUQcKtKE2j-7Ybigm5Z2iXt~12uYDLiX66oJt8JLzw__&Key-Pair-Id=KNBS2THMRC385"
+                },
+                {
+                    "name": "14式竹筒銃・甲",
+                    "image": "https://api.lp1.av5ja.srv.nintendo.net/resources/prod/weapon_illust/9c71334ea792864a00531040e0d05a183512e11277fd1fa681170874ba039268_0.png?Expires=1673308800&Signature=PB~xoCRhQQafXFUAni~o94h047gK3VbOf2u04CVxRscIqDOGGMBwlBKhNoNuOR4yIjIpIi7Ou9uoypvTSzBPanhmBL~USdteMi9nRAbfH4LEvSeIPUG421ob3FA2EwPtF4h2brxdFGEiFq8sig4FpA~aI~5Yadf-eqHp1J1WaWwEPoM3qeHj2qXA8BsopWVd0VocsCjrDZVETduhvVMO1m8tXvN1gmNG6HmhXkeQyBnurRcqVJJjlbYgTtipgl5CzGiYwgHxQ-MrfoUpkin7J3djXyBKYYpF0twPHQrhc~n1gQyH66km2EFwO6z5PT2mhln8gqxp8ORkg3lA4xzG~w__&Key-Pair-Id=KNBS2THMRC385"
+                },
+                {
+                    "name": "ジェットスイーパー",
+                    "image": "https://api.lp1.av5ja.srv.nintendo.net/resources/prod/weapon_illust/035920eb9428955c25aecb8a56c2b1b58f3e322af3657d921db1778de4b80c59_0.png?Expires=1673308800&Signature=aOKfWKhJ8HJt7Z9-Kfn3TCoh3YStlk2a3VD-ZnOIc54Wt8OQBsm8fF7Ak1cVifEqGaR0QQi7vAQ9BGDPLvti-pPK8RSIkTpugpgiSqlqZDM4ul~WVVfkIW8cSr7tlR5HACvn4ycgSLHB43hRJETRQrpqHtUZZUEGauFkM-1KtYJgcwTqdayYmh0mO~Ch0Ah7T6etRKzfVH5~DfoDiNe03sMlDGla78~5Ri6N4Ky~45UEyyTqd6m0h8dnjkT6C5C2tNgI-OvRCgcozJyXMu-fOJRDDpSJoqUHgQN~Ieg9zJH4w~nwgMNM90ur1XRLMsKNJIZmYTqyxvk4pad9nGjWAQ__&Key-Pair-Id=KNBS2THMRC385"
+                }
+            ]
+        }
+    ]
+}
