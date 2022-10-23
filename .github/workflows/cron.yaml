@@ -10,4 +10,4 @@ jobs:
         run: |
           curl --request POST \
           --url 'https://vip-de-splatoon.net/api/cron' \
-          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
+          --header 'Authorization: ${{ secrets.API_SECRET_KEY }}'

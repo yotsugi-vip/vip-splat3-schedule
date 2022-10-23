@@ -1,18 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { makeSchedule } from './schedule';
 import * as fs from 'fs';
 
-/**
- * 
- * @param {NextApiRequest} req 
- * @param {NextApiResponse} res 
- */
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
             const { authorization } = req.headers;
 
-            if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
+            if (authorization === `${process.env.API_SECRET_KEY}`) {
                 await getSchedule();
                 await makeSchedule();
                 res.status(200).json({ success: true });
