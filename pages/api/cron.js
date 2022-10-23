@@ -1,5 +1,6 @@
-export default MyApp
+export default function test() {
 
+}
 async function getSchedule(isPuv = true) {
     const splat3Endpoint = "";
     const testEndpoint = "https://httpbin.org";
