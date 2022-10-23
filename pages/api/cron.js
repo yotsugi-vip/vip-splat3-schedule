@@ -16,6 +16,6 @@ async function getSchedule(isPuv = true) {
         //画像キャッシュ処理
         //スケジュール画像生成
     } else {
-
+        console.log('develop mode');
     }
 }
