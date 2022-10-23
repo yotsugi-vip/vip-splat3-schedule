@@ -1,22 +1,42 @@
-export default function test() {
+import { NextApiRequest, NextApiResponse } from 'next';
+import { makeSchedule } from './schedule';
+import * as fs from 'fs';
 
+/**
+ * 
+ * @param {NextApiRequest} req 
+ * @param {NextApiResponse} res 
+ */
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        try {
+            const { authorization } = req.headers;
+
+            if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
+                await getSchedule();
+                await makeSchedule();
+                res.status(200).json({ success: true });
+            } else {
+                res.status(401).json({ success: false });
+            }
+        } catch (err) {
+            res.status(500).json({ statusCode: 500, message: err.message });
+        }
+    } else {
+        res.setHeader('Allow', 'POST');
+        res.status(405).end('Method Not Allowed');
+    }
 }
-async function getSchedule(isPuv = true) {
-    const splat3Endpoint = "";
-    const testEndpoint = "https://httpbin.org";
+
+async function getSchedule() {
+    const splat3Endpoint = "https://spla3.yuu26.com/api/schedule";
     const header = new Headers([
         ['method', 'get'],
         ['User-Agent', 'twitter@ytg-vip']
     ]);
 
-    const response = await fetch(isPuv ? splat3Endpoint : testEndpoint, header);
+    const response = await fetch(splat3Endpoint, header);
+    const data = await response.json();
 
-    if (response.status === "200") {
-        //json保存
-        //json解析
-        //画像キャッシュ処理
-        //スケジュール画像生成
-    } else {
-        console.log('develop mode');
-    }
+    fs.writeFileSync('./public/schedule.json', JSON.stringify(data));
 }
