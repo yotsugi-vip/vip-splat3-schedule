@@ -7,6 +7,11 @@
     }
   ],
   "functions": {
-    "api/schedule.js": {}
+    "api/schedule.js": {
+      "includeFiles": [
+        "/assets/**/*.",
+        "/Koruri-20210720/*."
+      ]
+    }
   }
 }
