@@ -1,7 +1,12 @@
 {
-    "version": 2,
-    "routes": [{ "src": "/.*", "dest": "/api/index" }],
-    "functions": {
-
+  "version": 2,
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/api/index"
     }
+  ],
+  "functions": {
+    "api/schedule.js": {}
   }
+}
