@@ -22,11 +22,7 @@ jobs:
         id: date
         run: echo "set-output name=date::$(date)"
       - name: git push
-        env:
-          TZ: 'Asia/Tokyo'
         run: |
           git add -A
-          git config --local user.emal "harukipdr@gmail.com"
-          git config --local user.name "yotsugi-vip"
           git commit -m "make schedule ${{steps.date.outputs.date}}"
           git push origin master
