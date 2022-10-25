@@ -7,8 +7,7 @@ export default async function handler(req, res) {
             const { authorization } = req.headers;
 
             if (authorization === `${process.env.API_SECRET_KEY}`) {
-                await getSchedule();
-                await makeSchedule();
+
                 res.status(200).json({ success: true });
             } else {
                 res.status(401).json({ success: false });
@@ -22,15 +21,3 @@ export default async function handler(req, res) {
     }
 }
 
-async function getSchedule() {
-    const splat3Endpoint = "https://spla3.yuu26.com/api/schedule";
-    const header = new Headers([
-        ['method', 'get'],
-        ['User-Agent', 'twitter@ytg-vip']
-    ]);
-
-    const response = await fetch(splat3Endpoint, header);
-    const data = await response.json();
-
-    fs.writeFileSync('./public/schedule.json', JSON.stringify(data));
-}

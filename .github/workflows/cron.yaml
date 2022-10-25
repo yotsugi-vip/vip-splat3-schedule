@@ -4,10 +4,27 @@ on:
     - cron: "0 1,3,5,7,9,11,13,15,17,19,21,23 * * *"
 jobs:
   cron:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - name: Call our API route
+      - uses: actions/checkout@master
+      - name: set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+      - name: make schedule
         run: |
-          curl --request POST \
-          --url 'https://vip-de-splatoon.net/api/cron' \
-          --header 'Authorization: ${{ secrets.API_SECRET_KEY }}'
+          npm install
+          npm run makeSchedule
+      - name: Get date
+        id: date
+        run: echo "set-output name=date::$(date)"
+      - name: git push
+        env:
+          TZ: 'Asia/Tokyo'
+        run: |
+          git add -A
+          git config --local user.emal "harukipdr@gmail.com"
+          git config --local user.name "yotsugi-vip"
+          git commit -m "make schedule ${{steps.date.outputs.date}}"
+          git push origin master

@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && next build"
+    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && next build",
+    "makeSchedule": "node ./makeSchedule.mjs"
   },
   "dependencies": {
     "canvas": "^2.10.1",
+    "firebase": "^9.12.1",
     "next": "12.3.1",
+    "node-fetch": "^3.2.10",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
