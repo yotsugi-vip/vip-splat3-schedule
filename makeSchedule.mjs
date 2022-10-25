@@ -162,7 +162,7 @@ const scheduleTimeImg = async (schedule_json) => {
 
     let schedule_index = 0;
     for (const match of schedule_json.result.bankara_open) {
-        const date = new Date(Date.parse(match.start_time)).toLocaleString({timeZone: 'AsiaTokyo'});
+        const date = new Date(Date.parse(match.start_time));
         let start_tm;
         let start_date;
         
