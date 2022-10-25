@@ -23,6 +23,8 @@ jobs:
         run: echo "set-output name=date::$(date)"
       - name: git push
         run: |
+          git config --global user.email "dev01.topaz@gmail.com"
+          git config --global user.name "yotsugi-vip"
           git add -A
           git commit -m "make schedule ${{steps.date.outputs.date}}"
           git push origin master
