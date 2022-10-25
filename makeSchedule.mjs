@@ -147,23 +147,6 @@ const challengeStageImg = async (schedule_json) => {
     return canvas;
 }
 
-/**
- * 
- * @param {match.start_time} utc_time 
- */
-const MakeDate = (utc_time) => {
-    const date = new Date(Date.parse(utc_time));
-    console.log(utc_time);
-    console.log(date.getTime());
-    const dayOfWeekStr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const year = date.getFullYear();
-    const month = ('0' + date.getMonth()).slice(-2);
-    const day = ('0' + date.getDay()).slice(-2);
-    const start_date = year + "/" + month + "/" + day + " " + dayOfWeekStr[date.getDay()];
-
-    return start_date;
-}
-
 const scheduleTimeImg = async (schedule_json) => {
 
     // must call brefore create Canvas!!!!
@@ -179,11 +162,10 @@ const scheduleTimeImg = async (schedule_json) => {
 
     let schedule_index = 0;
     for (const match of schedule_json.result.bankara_open) {
-        const date = new Date(Date.parse(match.start_time));
-        console.log(`${date.getMonth()}:${date.getDate()}`);
+        const date = new Date(Date.parse(match.start_time)).toLocaleString({timeZone: 'AsiaTokyo'});
         let start_tm;
         let start_date;
-
+        
         ctx_om.fillStyle = schedule_index % 2 === 0 ? "rgb(169,169,169)" : "rgb(220,220,220)";
         ctx_om.fillRect(0, 0, 320, 180);
 
@@ -193,7 +175,6 @@ const scheduleTimeImg = async (schedule_json) => {
         const month = ('0' + `${date.getMonth() + 1}`).slice(-2);
         const day = ('0' + date.getDate()).slice(-2);
         const makedate = year + "/" + month + "/" + day + " " + dayOfWeekStr[date.getDay()];
-        console.log(date);
 
         start_tm = ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) + "~";
         start_date = makedate;
@@ -205,7 +186,7 @@ const scheduleTimeImg = async (schedule_json) => {
         ctx_om.font = '50px "kokuri_exb"';
         ctx_om.fillText(start_tm, 10, 120);
 
-        console.log(start_date + ":" + start_tm);
+        console.log(match.start_time + "->" + start_date + ":" + start_tm);
 
         // draw output canvas
         ctx.drawImage(canvas_om, 0, one_schedule_h * schedule_index);
