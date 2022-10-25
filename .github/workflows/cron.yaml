@@ -27,4 +27,4 @@ jobs:
           git config --global user.name "yotsugi-vip"
           git add -A
           git commit -m "make schedule ${{steps.date.outputs.date}}"
-          git push origin master
+          git push origin main
