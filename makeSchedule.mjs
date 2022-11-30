@@ -185,7 +185,7 @@ const xMatchStageImg = async (schedule_json) => {
 
             stg_ctx.font = '60px "kokuri_exb';
             stg_ctx.fillStyle = "rgb(255, 59, 0)";
-            stg_ctx.fillText("X", 10+6, 60+2);
+            stg_ctx.fillText("X", 10+3, 60+2);
 
             stg_ctx.font = '50px "kokuri_exb';
             stg_ctx.fillStyle = "rgb(255, 255, 255)";
