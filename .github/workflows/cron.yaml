@@ -1,7 +1,7 @@
 name: daily-cron
 on:
   schedule:
-    - cron: "0 0,2,4,6,8,10,12,14,16,18,20,22 * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
     
 jobs:
@@ -10,9 +10,6 @@ jobs:
     outputs:
       output1: ${{ steps.nowdate.outputs.nowdate }}
     steps:
-      - uses: szenius/set-timezone@v1.0
-        with:
-          timezoneLinux: "Asia/Tokyo"
       - uses: actions/checkout@master
       - name: set node
         uses: actions/setup-node@v3

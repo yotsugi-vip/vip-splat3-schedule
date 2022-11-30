@@ -66,7 +66,7 @@ const OpenStageImg = async (schedule_json) => {
             const stage_cvs = createCanvas(w, h);
             const stg_ctx = stage_cvs.getContext('2d');
 
-            imgbuff = await loadImage('./public/asset/stage_vss/stage_' + ('0' + stage.id).slice(-2) + '.png');
+            imgbuff = await getStageImage(stage.id);
             stg_ctx.drawImage(imgbuff, 0, 0);
 
             stg_ctx.fillStyle = "rgba(50, 50, 50, 0.5)";
@@ -121,7 +121,7 @@ const challengeStageImg = async (schedule_json) => {
             const stage_cvs = createCanvas(w, h);
             const stg_ctx = stage_cvs.getContext('2d');
 
-            imgbuff = await loadImage('./public/asset/stage_vss/stage_' + ('0' + stage.id).slice(-2) + '.png');
+            imgbuff = await  getStageImage(stage.id);
             stg_ctx.drawImage(imgbuff, 0, 0);
 
             stg_ctx.fillStyle = "rgba(50, 50, 50, 0.5)";
@@ -147,6 +147,76 @@ const challengeStageImg = async (schedule_json) => {
     return canvas;
 }
 
+const xMatchStageImg = async (schedule_json) => {
+    registerFont('./public/Koruri-20210720/Koruri-Regular.ttf', { family: 'kokuri_r' });
+    registerFont('./public/Koruri-20210720/Koruri-Extrabold.ttf', { family: 'kokuri_exb' });
+
+    const one_schedule_h = 160;
+    const all_schedule_h = one_schedule_h * schedule_json.result.bankara_challenge.length;
+    const rule_size = 120;
+    const canvas = createCanvas(640, all_schedule_h);
+    const canvas_om = createCanvas(640, 160);
+    const ctx = canvas.getContext('2d');
+    const ctx_om = canvas_om.getContext('2d');
+    let schedule_index = 0;
+    let imgbuff = new Image();
+
+    for (const match of schedule_json.result.x) {
+        let date;
+        let start_tm;
+        let index = 0;
+
+        ctx_om.fillStyle = schedule_index % 2 === 0 ? "rgb(169,169,169)" : "rgb(220,220,220)";
+        ctx_om.fillRect(0, 0, 640 + 5, 160);
+
+        // stage draw
+        for (const stage of match.stages) {
+            const w = 640;
+            const h = 320;
+            const stage_cvs = createCanvas(w, h);
+            const stg_ctx = stage_cvs.getContext('2d');
+
+            imgbuff = await getStageImage(stage.id);
+            stg_ctx.drawImage(imgbuff, 0, 0);
+
+            stg_ctx.fillStyle = "rgba(50, 50, 50, 0.5)";
+            stg_ctx.fillRect(0, h - 55, w, 55);
+            stg_ctx.fillRect(0, 0, w, 80);
+
+            stg_ctx.font = '60px "kokuri_exb';
+            stg_ctx.fillStyle = "rgb(255, 59, 0)";
+            stg_ctx.fillText("X", 10+6, 60+2);
+
+            stg_ctx.font = '50px "kokuri_exb';
+            stg_ctx.fillStyle = "rgb(255, 255, 255)";
+            stg_ctx.fillText("  マッチ", 10, 60);
+            stg_ctx.fillText(stage.name, 10, 310, 640);
+
+            imgbuff = await loadImage(`./public/asset/rule/${getRuleAsset(match.rule.key)}`);
+            stg_ctx.drawImage(imgbuff, w - rule_size - 5, 5, rule_size, rule_size);
+
+            ctx_om.drawImage(clipCarveSq(stage_cvs), 315 * index + 7.5, 5, 310, 150);
+            index++;
+        }
+
+        // draw output canvas
+        ctx.drawImage(canvas_om, 0, 160 * schedule_index);
+        schedule_index++;
+    }
+    return canvas;
+}
+
+const getStageImage = async (stage_id) => {
+    let imgbuff = new Image();
+    try {
+        imgbuff = await loadImage('./public/asset/stage_vss/stage_' + ('0' + stage_id).slice(-2) + '.png');
+    } catch {
+        console.log(`error not fond statge image ID:${stage_id}`);
+        imgbuff = await loadImage('./public/asset/stage_vss/stage_00.png');
+    }
+    return imgbuff
+}
+
 const scheduleTimeImg = async (schedule_json) => {
 
     // must call brefore create Canvas!!!!
@@ -165,7 +235,7 @@ const scheduleTimeImg = async (schedule_json) => {
         const date = new Date(Date.parse(match.start_time));
         let start_tm;
         let start_date;
-        
+
         ctx_om.fillStyle = schedule_index % 2 === 0 ? "rgb(169,169,169)" : "rgb(220,220,220)";
         ctx_om.fillRect(0, 0, 320, 180);
 
@@ -198,11 +268,12 @@ const scheduleTimeImg = async (schedule_json) => {
 const makeAllImg = async (schedule_json) => {
     const one_schedule_h = 160;
     const all_schedule_h = one_schedule_h * schedule_json.result.bankara_challenge.length;
-    const canvas = createCanvas(1600, all_schedule_h);
+    const canvas = createCanvas(2240, all_schedule_h);
     const ctx = canvas.getContext('2d');
     ctx.drawImage(await scheduleTimeImg(schedule_json), 0, 0);
     ctx.drawImage(await OpenStageImg(schedule_json), 320, 0);
     ctx.drawImage(await challengeStageImg(schedule_json), 960, 0);
+    ctx.drawImage(await xMatchStageImg(schedule_json), 1600, 0);
     return canvas;
 }
 

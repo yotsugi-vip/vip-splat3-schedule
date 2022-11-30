@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Sriracha);
+@import url(https://fonts.googleapis.com/css?family=Londrina+Outline);
+
 html,
 body {
   padding: 0;
@@ -21,7 +24,7 @@ a {
   }
   body {
     color: white;
-    background: rgb(100, 100, 100);
+    background: rgb(24, 24, 24);
   }
 }
 @media (prefers-color-scheme: light) {
@@ -34,3 +37,41 @@ a {
   }
 }
 
+x-sign {
+  --interval: 1s;
+  display: block;
+  text-shadow: 
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(100) var(--interval) 1s infinite;
+}
+
+x-sign:nth-of-type(1) {
+  color: azure;
+  --color1: azure;
+  --color2: aqua;
+  --color3: dodgerblue;
+  --color4: blue;
+  font-family: Sriracha;
+}
+
+
+x-sign#welcome {
+  color: lightyellow;
+  --color1: gold;
+  --color2: firebrick;
+  --color3: pink;
+  --color4: red;
+  font-family: Londrina Outline;
+}
+
+@keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
