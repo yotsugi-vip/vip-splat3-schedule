@@ -10,6 +10,9 @@ jobs:
     outputs:
       output1: ${{ steps.nowdate.outputs.nowdate }}
     steps:
+      - uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "Asia/Tokyo"
       - uses: actions/checkout@master
       - name: set node
         uses: actions/setup-node@v3
