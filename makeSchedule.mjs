@@ -169,6 +169,9 @@ const StageImg = async (schedule_json, rule) => {
                         case "クサヤ温泉":
                             ret = 7;
                             break;
+                        case "タラポートショッピングパーク":
+                            ret = 8;
+                            break;
                         case "ヒラメが丘団地":
                             ret = 9;
                             break;
@@ -192,6 +195,9 @@ const StageImg = async (schedule_json, rule) => {
                             break;
                         case "スメーシーワールド":
                             ret = 16;
+                            break;
+                        case "コンブトラック":
+                            ret = 17;
                             break;
                         default:
                             ret = 1;
