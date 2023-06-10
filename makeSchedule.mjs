@@ -163,6 +163,9 @@ const StageImg = async (schedule_json, rule) => {
                         case "マテガイ放水路":
                             ret = 4;
                             break;
+                        case "ナンプラー遺跡":
+                            ret = 5;
+                            break;
                         case "ナメロウ金属":
                             ret = 6;
                             break;
@@ -198,6 +201,9 @@ const StageImg = async (schedule_json, rule) => {
                             break;
                         case "コンブトラック":
                             ret = 17;
+                            break;
+                        case "マンタマリア号":
+                            ret = 18;
                             break;
                         default:
                             ret = 1;
